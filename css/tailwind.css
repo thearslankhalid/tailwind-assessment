@@ -2,4 +2,14 @@
 
 @tailwind components;
 
+
+/* Just an example on how to extract reusable components */
+
+/* Styles for Mailshot users table*/
+
+.status-icon{
+    @apply w-4 h-4 mx-auto;
+}
+
+
 @tailwind utilities;

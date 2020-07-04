@@ -6,39 +6,315 @@
     <title>Tailwind Assessment</title>
 
     <!-- Linking the build style file -->
-    <link rel="stylesheet" href="./build/style.css">
+    <link rel="stylesheet" href="./build/style.css">    
+
 </head>
-<body>
-    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-        <div class="text-white mr-6">
-          <span class="font-semibold text-xl tracking-tight">CAPWELL</span>
-        </div>
+<body class="bg-m-bg">
 
-        <!-- Dropdown Menu for md and smaller screens -->
-        <div class="block ml-auto lg:hidden">
-          <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-            <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-          </button>
-        </div>
+  <!-- Header starts here -->
+  <header>
+    <nav class="flex items-center justify-between flex-wrap bg-m-tertiary px-8 lg:px-16 py-2">
+      <div class="text-white mr-6">
+        <span class="font-semibold text-xl tracking-tight">CAPWELL</span>
+      </div>
 
-        <!-- Menu for lg and larger screens -->
-        <div class="w-full block lg:flex-end lg:flex lg:items-center lg:w-auto">
+      <!-- Dropdown Menu for md and smaller screens -->
+      <div class="block ml-auto lg:hidden">
+        <button onclick="toggle()" class="flex items-center px-3 py-2 border rounded text-m-bg border-m-bg">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </button>
+      </div>
+
+      <!-- Menu for lg and larger screens -->
+      <div id='menu' class="hidden w-full block lg:flex-end lg:flex lg:items-center lg:w-auto">
+      
+      <!-- Links container -->
+        <div class="text-md block lg:flex lg:justify-center lg:items-center">
+      <!-- Individual link -->
+          <a href="#" class="flex items-center mt-4 lg:flex-col lg:mt-0 text-m-bg mr-4">
+          
+            <img class="w-8 h-8 my-1" src="./assets/svg/setup.svg" alt="Icon of settings">
+            <span class="ml-2 lg:ml-0">Settings</span>
+          </a>
+      <!-- Individual link -->
+          <a href="#" class="flex items-center mt-4 lg:flex-col lg:mt-0 text-m-bg mr-4">
+            <img class="w-8 h-8 my-1 rounded-full" src="./assets/jpg/face1.jpg" alt="Profile picture of the user">
+            <span class="ml-2 lg:ml-0">Profile</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+    
+
+  <!-- Main starts here -->
+
+      <main class="mt-6 md:mt-12">
+        <a class="text-sm px-8 lg:px-16 text-m-tertiary" href="#">&larr; Back to job request</a>
         
-        <!-- Links container -->
-          <div class="text-md block lg:flex lg:justify-center lg:items-center">
-        <!-- Individual link -->
-            <a href="#" class="flex items-center mt-4 lg:flex-col lg:mt-0 text-teal-200 hover:text-white mr-4">
-            
-              <img class="w-8 h-8 my-1" src="./assets/svg/setup.svg" alt="SVG picture of settings">
-              <span class="ml-2 lg:ml-0">Settings</span>
-            </a>
-        <!-- Individual link -->
-            <a href="#" class="flex items-center mt-4 lg:flex-col lg:mt-0 text-teal-200 hover:text-white mr-4">
-              <img class="w-8 h-8 my-1 rounded-full" src="./assets/jpg/face1.jpg" alt="PNG picture of the user">
-              <span class="ml-2 lg:ml-0">Profile</span>
-            </a>
+        <!-- Mailshot container -->
+        <section class="px-8 lg:px-16 py-4 md:py-8 flex flex-wrap">
+          <h1 class="text-4xl font-semibold w-full pb-8 text-m-primary">Create Mailshot</h1>
+          <!-- Mailshot creator element -->
+          <div class="w-full p-6 lg:p-8 lg:w-1/2 bg-m-text shadow-md rounded-lg">
+            <h2 class="text-2xl text-m-secondary">Mailshot Template</h2>
+            <!-- Mailshot Form   -->
+            <form class="py-4 flex flex-wrap">
+              <!-- Form first row container -->
+              <div class="flex flex-wrap w-full justify-between py-4">
+                <select class="form-select w-full mb-2 mr-0 sm:mr-4 sm:mb-0 sm:w-3/5 px-4 py-2 rounded-lg focus:outline-none pl-4 pr-12 bg-m-bg appearance-none text-m-primary" name="mailshot-template" id="template">
+                  <option value="default">Default Template</option>
+                  <option value="light">Light Template</option>
+                  <option value="dark">Dark Template</option>
+                </select>
+                <button class="w-full sm:w-1/4 flex items-center justify-center bg-m-tertiary text-m-bg px-4 py-2 rounded-lg">
+                  Save
+                  <img class="w-6 h-6 ml-2" src="./assets/svg/download.svg" alt="Icon for download">
+                </button>
+              </div>
+
+              <!-- Form Input container -->
+              <div class="flex flex-wrap w-full py-4">
+                <label class="w-full py-2 text-m-tertiary" for="subject">Subject</label>
+                <input class="w-full px-4 py-2 bg-m-bg rounded-lg text-m-primary" type="text" name="subject" id="subject" placeholder="Your subject goes here!">
+              </div>
+
+              <!-- Form textbox container -->
+              <div class="flex flex-wrap">
+                <label class="w-full py-2 text-m-tertiary" for="body">Body</label>
+                <textarea class="w-full border border-blue p-4 rounded-lg text-m-primary" name="body" id="body" cols="100%" rows="8"></textarea>
+              </div>
+
+            </form>
+
+            <!-- Test Mail Form -->
+            <form class="py-4 flex flex-wrap">
+              <label class="w-full pb-2 text-m-tertiary" for="test-person">Send test email</label>
+              <!-- Test Mail form interface -->
+              <div class="w-full flex flex-wrap sm:flex-no-wrap items-center justify-between px-4 bg-m-bg py-4 rounded-lg">
+                <!-- Test user -->
+                <div class="w-full w-1/4 flex items-center justify-start">
+                  <img class="w-12 h-12 rounded-full" src="./assets/jpg/face1.jpg" alt="Profile picture of the test user">
+                  <div class="flex flex-col items-start ml-1 sm:ml-2">
+                    <span class="text-m-primary">Tim Cook</span>
+                    <span class="text-xs text-m-tertiary">tim@capwell.nl</span>
+                  </div>
+                </div>
+                <!-- Send button -->
+                <button class="w-full sm:w-auto mt-4 sm:mt-0 flex justify-center items-center bg-m-tertiary px-6 py-2 text-m-bg rounded-lg">
+                  Send 
+                  <img class="w-6 h-6 ml-2" src="./assets/svg/send.svg" alt="Icon for send">
+                </button>
+              </div>
+              
+            </form>
           </div>
-        </div>
-      </nav>
+          <!-- Mailshot list container -->
+          <div class="mailshot-list w-full lg:px-8 lg:w-1/2 lg:my-0 mt-16 mb-8">
+            <div class="w-full flex flex-wrap sm:flex-no-wrap justify-between items-center pb-4">
+              <h3 class="text-lg text-m-primary">Candidates list</h3>
+              <button class="w-full mt-2 sm:mt-0 sm:w-auto flex items-center justify-center bg-m-tertiary text-m-bg px-4 py-2 rounded-lg">
+                Check Status
+                <img class="w-6 h-6 ml-2" src="./assets/svg/correct.svg" alt="Icon for send">
+              </button>
+            </div>
+            
+            <!-- Mailshot users table -->
+
+            <div class="py-4 sm:overflow-x-auto scrolling-auto w-full">
+              <div class="inline-block shadow-md rounded-lg overflow-hidden w-full">
+                  <table class="leading-normal w-full">
+                    <!-- Table head -->
+                      <thead>
+                          <tr class="border-b-2 border-gray-200 bg-m-bg text-left text-xs uppercase tracking-wider text-gray-500">
+                              <th
+                                  class="pl-4 py-2">
+                                  Name
+                              </th>
+                              <th
+                                  class="px-1 py-2">
+                                  Status
+                              </th>
+                              <th
+                                  class="px-1 py-2">
+                                  Search
+                              </th>
+                              <th
+                                  class="px-1 py-2">
+                                  Prev
+                              </th>
+                          </tr>
+                      </thead>
+                      <!-- Table body -->
+                      <tbody>
+                        <!-- First user row -->
+                          <tr class="border-b border-gray-200 bg-white text-sm px-2">
+                            
+                              <td class="pl-4 pr-2">
+
+                                  <div class="flex items-center">
+                                    <input class="form-checkbox h-5 w-5 text-m-tertiary" type="checkbox" name="mailshot-person" id="mailshot-person">
+                                          <span class="text-m-primary whitespace-no-wrap ml-2">
+                                              Vera Capenter
+                                          </span>
+                                      
+                                  </div>
+                              </td>
+                              <td class="px-2 py-4">
+                                <img class="status-icon" src="./assets/png/star-light.png" alt="Icon for a star">
+                              </td>
+                              <td class="px-2 py-4">
+                                <img class="status-icon" src="./assets/png/mail-opened.png" alt="Icon for a email">
+                              </td>
+                              <td class="px-2 py-4">
+                                <img class="status-icon" src="./assets/png/eye.png" alt="Icon for an eye">
+                            </td>
+                          </tr>
+                          <!-- Next user row -->
+                          <tr class="border-b border-gray-200 bg-white text-sm px-2">
+                            
+                            <td class="pl-4 pr-2">
+
+                                <div class="flex items-center">
+                                  <input class="form-checkbox h-5 w-5 text-m-tertiary" type="checkbox" name="mailshot-person" id="mailshot-person">
+                                        <span class="text-m-primary whitespace-no-wrap ml-2">
+                                            Alonzo Cox
+                                        </span>
+                                    
+                                </div>
+                            </td>
+                            <td class="px-2 py-4">
+                              <img class="status-icon" src="./assets/png/star.png" alt="Icon for a star">
+                            </td>
+                            <td class="px-2 py-4">
+                              <img class="status-icon" src="./assets/png/mail-closed.png" alt="Icon for a email">
+                            </td>
+                            <td class="px-2 py-4">
+                              <img class="status-icon" src="./assets/png/eye.png" alt="Icon for an eye">
+                          </td>
+                        </tr>
+                        <!-- Next user row -->
+                        <tr class="border-b border-gray-200 bg-white text-sm px-2">
+                            
+                          <td class="pl-4 pr-2">
+
+                              <div class="flex items-center">
+                                <input class="form-checkbox h-5 w-5 text-m-tertiary" type="checkbox" name="mailshot-person" id="mailshot-person">
+                                      <span class="text-m-primary whitespace-no-wrap ml-2">
+                                          Liam Noddat
+                                      </span>
+                                  
+                              </div>
+                          </td>
+                          <td class="px-2 py-4">
+                            <img class="status-icon" src="./assets/png/star.png" alt="Icon for a star">
+                          </td>
+                          <td class="px-2 py-4">
+                            <img class="status-icon" src="./assets/png/mail-opened.png" alt="Icon for a email">
+                          </td>
+                          <td class="px-2 py-4">
+                            <img class="status-icon" src="./assets/png/eye.png" alt="Icon for an eye">
+                        </td>
+                      </tr>
+                      <!-- Next user row -->
+                      <tr class="border-b border-gray-200 bg-white text-sm px-2">
+                            
+                        <td class="pl-4 pr-2">
+
+                            <div class="flex items-center">
+                              <input class="form-checkbox h-5 w-5 text-m-tertiary" type="checkbox" name="mailshot-person" id="mailshot-person">
+                                    <span class="text-m-primary whitespace-no-wrap ml-2">
+                                        Hugo Loscgi
+                                    </span>
+                                
+                            </div>
+                        </td>
+                        <td class="px-2 py-4">
+                          <img class="status-icon" src="./assets/png/star-light.png" alt="Icon for a star">
+                        </td>
+                        <td class="px-2 py-4">
+                          <img class="status-icon" src="./assets/png/mail-opened.png" alt="Icon for a email">
+                        </td>
+                        <td class="px-2 py-4">
+                          <img class="status-icon" src="./assets/png/eye.png" alt="Icon for an eye">
+                      </td>
+                    </tr>
+                    <!-- Next user row -->
+                    <tr class="border-b border-gray-200 bg-white text-sm px-2">
+                            
+                      <td class="pl-4 pr-2">
+
+                          <div class="flex items-center">
+                            <input class="form-checkbox h-5 w-5 text-m-tertiary" type="checkbox" name="mailshot-person" id="mailshot-person">
+                                  <span class="text-m-primary whitespace-no-wrap ml-2">
+                                      Mikso Zawera
+                                  </span>
+                              
+                          </div>
+                      </td>
+                      <td class="px-2 py-4">
+                        <img class="status-icon" src="./assets/png/star-light.png" alt="Icon for a star">
+                      </td>
+                      <td class="px-2 py-4">
+                        <img class="status-icon" src="./assets/png/mail-closed.png" alt="Icon for a email">
+                      </td>
+                      <td class="px-2 py-4">
+                        <img class="status-icon" src="./assets/png/eye.png" alt="Icon for an eye">
+                    </td>
+                  </tr>
+                      </tbody>
+                  </table>
+                  <div
+                      class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
+                      <span class="text-xs xs:text-sm text-m-tertiary">
+                          Showing 1 to 5 of 50 Entries
+                      </span>
+                      <div class="inline-flex mt-2 xs:mt-0">
+                          <button
+                              class="text-sm bg-m-text text-m-primary hover:text-m-bg hover:bg-m-tertiary font-semibold py-2 px-4 rounded-l">
+                              Prev
+                          </button>
+                          <button
+                              class="text-sm bg-m-text text-m-primary hover:text-m-bg hover:bg-m-tertiary font-semibold py-2 px-4 rounded-r">
+                              Next
+                          </button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+            <!-- End of Mailshot users table -->
+          </div>
+        </section>
+
+        <!-- Section for Mailshot Send -->
+        <section>
+          <form class="flex-col sm:flex-row flex justify-between items-center lg:mt-16 py-8 lg:px-16 px-8 bg-m-text">
+            <span class="text-m-primary text-left w-full sm:w-auto">3 candidates selected</span>
+            <button class="mt-2 sm:mt-0 w-full sm:w-auto flex items-center justify-center bg-m-secondary py-2 px-4 text-m-bg rounded-lg">
+              Send mailshot
+              <img class="w-6 h-6 ml-2" src="./assets/svg/send.svg" alt="Icon for send">
+            </button>
+          </form>
+        </section>
+      </main>
+
+
+      <!-- No footer sadly :( -->
+
+      
+
+      <!-- Script tag -->
+      
+      <script text="javascript">
+
+
+        // Added a quick toggle for the menu at medium and smaller screens
+
+        const menu =  document.getElementById('menu');
+        async function toggle(){
+          menu.classList.toggle('hidden');
+        }
+      </script>
 </body>
 </html>
